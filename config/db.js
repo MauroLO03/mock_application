@@ -10,7 +10,7 @@ function createPool(config){
         console.error('Unexpected error on idle client', err)
         process.exit(-1)
     })
-
+    console.log("etst")
     return pool
 }
 module.exports= createPool
