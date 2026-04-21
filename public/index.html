@@ -1,37 +1,77 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body >
-    <h1>MOCK APPLICATION</h1>
-    <h2>within this application there are buttons which does data base calls to the distributed systems</h2>
-    <div class="buttonGroup">
-        <button onclick="read()"> read</button>
-        <button> read1 </button>
-        <button> read2 </button>
-    </div>
-    <div class="buttonGroup">
-        <button> write </button>
-        <button> write1 </button>
-        <button> write2 </button>
-    </div>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+    </head>
+    <body >
+        <h1>MOCK APPLICATION</h1>
+        <h2>within this application there are buttons which does data base calls to the distributed systems</h2>
+        <div class="buttonGroup">
+            <button onclick="dbRead()"> read</button>
+            <button onclick="dbRead1()"> read1 </button>
+            <button onclick="dbRead2()"> read2 </button>
+        </div>
+        <div class="buttonGroup">
+            <button onclick="dbWrite()"> write </button>
+            <button onclick="dbWrite1()"> write1 </button>
+            <button onclick="dbWrite2()"> write2 </button>
+        </div>
+    </body>
+    </html>
 
-<script>
-    const read = async () => {
-        const res = await fetch('/api/read')
-        const data = await res.json()
-        console.log(data)
+    <script>
+        const dbRead = async () => {
+                        console.log("read körs")
+
+            const res = await fetch('/api/dbRead')
+            const data = await res.json()
+            console.log(data)
+
+            
+        }
+
+        const dbRead1 = async() =>{
+            console.log("read1 körs")
+            const res = await fetch('/api/dbRead1')
+            const data = res.json()
+            console.log(data)
+        }
+
+        const dbRead2 = async() => {
+            console.log("read2 körs")
+            const res = await fetch('/api/dbRead2')
+            const data = await res.json()
+            console.log(data)
+        }
+
+        const dbWrite = async() => {
+            console.log("write körs")
+            const res = await fetch('/api/dbWrite')
+            const data = await res.json()
+            console.log(data)
+        }
+
+        const dbWrite1 = async() => {
+            console.log("write1 körs")
+            const res = await fetch('/api/dbWrite1')
+            const data = await res.json()
+            console.log(data)
+        }
+
+        const dbWrite2 = async ()  =>{
+            console.log("write2 körs")
+            const res = await fetch('/api/dbWrite2')
+            const data = await res.json()
+            console.log(data)
+        }
+
+
+
+    </script>
+
+    <style>
+            .buttonGroup{
+            margin-bottom: 50px
+        }
         
-    }
-
-</script>
-
-<style>
-        .buttonGroup{
-        margin-bottom: 50px
-    }
-    
-</style>
+    </style>
