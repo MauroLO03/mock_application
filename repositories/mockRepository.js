@@ -18,11 +18,13 @@ async function readDB2(){
     return result.row
 }
 
-async function writeDB( person_id, name, surname, pnr, email, password, role_id, username){
+async function writeDB(  name, surname, pnr, email, password, role_id, username){
     console.log("write från repository")
 
-    const result = await pool.query("insert into person  ( person_id, name, surname, pnr, email, password, role_id, username) values ($1,$2,$3,$4,$5,$6,$7)", [ person_id, name, surname, pnr, email, password, role_id, username])
-    return result.row
+    const result = await pool.query("insert into person  (name, surname, pnr, email, password, role_id, username) values ($1,$2,$3,$4,$5,$6,$7) returning *", [ name, surname, pnr, email, password, role_id, username])
+    
+    console.log("Data returned from db: ", result.rows[0])
+    return result.rows[0]
 
 }
 

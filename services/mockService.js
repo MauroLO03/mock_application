@@ -29,16 +29,16 @@ async function dbRead2(){
 
 async function dbWrite(){
     console.log("skickar write från service")
-    const randomId = mockIntegerData()
     const randomName = mockStringData()
     const randomSurname = mockStringData()
     const randomPNR = mockIntegerData()
     const randomEmail = mockStringData()
     const randomPassword = mockStringData()
-    const randomRoleID = mockIntegerData()
     const randomUsername = mockStringData()
+
+    const roleId=2
     
-    const dbResult = await mockRepository.writeDB(randomId, randomName, randomSurname, randomPNR, randomEmail, randomPassword, randomRoleID, randomUsername)
+    const dbResult = await mockRepository.writeDB( randomName, randomSurname, randomPNR, randomEmail, randomPassword, roleId, randomUsername)
     return{
         message:"write success",
         data: dbResult
