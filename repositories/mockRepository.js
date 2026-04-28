@@ -3,7 +3,7 @@ const pool = require('../config/db')
 async function readDB(){
     console.log("skickar från repository")
     const result = await pool.query("select * from availability limit 1")
-    return result.row
+    return result.rows[0]
 }
 
 async function readDB1(){
@@ -19,7 +19,6 @@ async function readDB2(){
 }
 
 async function writeDB(  name, surname, pnr, email, password, role_id, username){
-    console.log("write från repository")
 
     const result = await pool.query("insert into person  (name, surname, pnr, email, password, role_id, username) values ($1,$2,$3,$4,$5,$6,$7) returning *", [ name, surname, pnr, email, password, role_id, username])
     
@@ -29,9 +28,8 @@ async function writeDB(  name, surname, pnr, email, password, role_id, username)
 }
 
 async function writeDB1(mockID, mockFromDate, mockToDate){
-    console.log("write1 från repository")
 
-    const result= await pool.query("insert into availability (person_id, from_date, to_date) values($1,$2)", [mockID, mockFromDate, mockToDate])
+    const result= await pool.query("insert into availability (person_id, from_date, to_date) values($1,$2,$3)", [mockID, mockFromDate, mockToDate])
     return{
         message: "Data succesfully written to DB",
         inserted: {

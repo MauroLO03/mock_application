@@ -41,7 +41,14 @@ async function dbWrite(req, res){
     try{
         console.log("skickar write från controller")
         const result= await mockService.dbWrite()
-        res.json(result)
+        if(!result || !result.data){
+            return res.status(500).json({
+                message: "database returned no data",
+                received: result
+            })
+        }
+
+        res.json(result.data)
     }catch(e){
         console.error(e)
         res.status(500).json({message: "dålig response"})
