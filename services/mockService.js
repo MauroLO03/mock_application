@@ -1,7 +1,6 @@
 const mockRepository = require('../repositories/mockRepository')
 
 async function dbRead(){
-    console.log("skickar read från service")
     const dbResult =await mockRepository.readDB()
     return {
         message: "read success",
@@ -10,7 +9,6 @@ async function dbRead(){
 }
 
 async function dbRead1(){
-    console.log("skickar read1 från service")
     const dbResult = await mockRepository.readDB1()
     return{
         message: "read1 success",
@@ -19,7 +17,6 @@ async function dbRead1(){
 }
 
 async function dbRead2(){
-    console.log("skickar read2 från service")
     const dbResult = await mockRepository.readDB2()
     return{
         message:"read2 success",
@@ -28,7 +25,6 @@ async function dbRead2(){
 }
 
 async function dbWrite(){
-    console.log("skickar write från service")
     const randomName = mockStringData()
     const randomSurname = mockStringData()
     const randomPNR = mockIntegerData()
@@ -46,7 +42,6 @@ async function dbWrite(){
 }
 
 async function dbWrite1(){
-    console.log("skickar write1 från service")
     const randomIntegerString = mockIntegerData()
     const randomToDate = mockDateString()
     const randomFromDate = mockDateString()
@@ -59,7 +54,6 @@ async function dbWrite1(){
 }
 
 async function dbWrite2(){
-    console.log("skickar write2 från service")
 
     const randomId = mockIntegerData()
     const randomCompetence = mockIntegerData()

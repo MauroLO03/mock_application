@@ -2,9 +2,15 @@ const mockService = require('../services/mockService')
 
 async function dbRead(req,res){
     try{
-        console.log("skickar från controller")
         const result = await mockService.dbRead()
-        res.json(result)
+        if(!result || !result.data){
+            return res.status(500).json({
+                message: "database returned no data",
+                received: result
+            })
+        }
+
+        res.json(result.data)
         
     }catch(error){
         console.error(error)
@@ -15,9 +21,15 @@ async function dbRead(req,res){
 
 async function dbRead1(req, res){
     try{
-        console.log("skickar read1 från controller")
         const result = await mockService.dbRead1()
-        res.json(result)
+        if(!result || !result.data){
+            return res.status(500).json({
+                message: "database returned no data",
+                received: result
+            })
+        }
+
+        res.json(result.data)
 
     }catch(e){
         console.error(e)
@@ -27,9 +39,15 @@ async function dbRead1(req, res){
 
 async function dbRead2(req,res){
     try{
-        console.log("skickar read2 från controller")
         const result = await mockService.dbRead2()
-        res.json(result)
+        if(!result || !result.data){
+            return res.status(500).json({
+                message: "database returned no data",
+                received: result
+            })
+        }
+
+        res.json(result.data)
 
     }catch(e){
         console.error(e)
@@ -39,7 +57,6 @@ async function dbRead2(req,res){
 
 async function dbWrite(req, res){
     try{
-        console.log("skickar write från controller")
         const result= await mockService.dbWrite()
         if(!result || !result.data){
             return res.status(500).json({
@@ -59,7 +76,14 @@ async function dbWrite1(req,res){
     try{ 
         console.log("skickar write1 från controller")
         const result = await mockService.dbWrite1()
-        res.json(result)
+        if(!result || !result.data){
+            return res.status(500).json({
+                message: "database returned no data",
+                received: result
+            })
+        }
+
+        res.json(result.data)
 
     }catch(e){
         console.error(e)
@@ -72,7 +96,14 @@ async function dbWrite2(req, res){
     try{
         console.log("skickar write2 från controller")
         const result = await mockService.dbWrite2()
-        res.json(result)
+            if(!result || !result.data){
+            return res.status(500).json({
+                message: "database returned no data",
+                received: result
+            })
+        }
+
+        res.json(result.data)
 
     }catch(e){
         console.error(e)
