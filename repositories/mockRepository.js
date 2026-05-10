@@ -2,17 +2,17 @@ const pool = require('../config/db')
 
 async function readDB(){
     const result = await pool.query("select * from availability limit 1")
-    return result.rows[0]
+    return result.rows
 }
 
 async function readDB1(){
     const result = await pool.query("select name, surname, email from person limit 4")
-    return result.row}
+    return result.rows}
 
 
 async function readDB2(){
     const result = await pool.query("select * from competence_profile")
-    return result.row
+    return result.rows
 }
 
 async function writeDB(  name, surname, pnr, email, password, role_id, username){
