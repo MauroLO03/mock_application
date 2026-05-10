@@ -33,7 +33,7 @@
         const dbRead1 = async() =>{
             console.log("read1 körs")
             const res = await fetch('/api/dbRead1')
-            const data = res.json()
+            const data = await res.json()
             console.log(data)
         }
 

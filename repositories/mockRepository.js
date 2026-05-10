@@ -11,8 +11,8 @@ async function readDB1(){
 
 
 async function readDB2(){
-    const result = await pool.query("select * from competence_profile")
-    return result.rows
+    const result = await pool.query("select * from competence_profile limit 1")
+    return result.rows[0]
 }
 
 async function writeDB(  name, surname, pnr, email, password, role_id, username){
