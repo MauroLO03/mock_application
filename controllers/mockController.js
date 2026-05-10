@@ -22,12 +22,10 @@ async function dbRead(req,res){
 async function dbRead1(req, res){
     try{
         const result = await mockService.dbRead1()
-        if(!result || !result.data){
-            return res.status(500).json({
-                message: "database returned no data",
-                received: result
-            })
+        if (!result) {
+            return res.status(500).json({ message: "Internal Service Error" });
         }
+        
 
         res.json(result.data)
 

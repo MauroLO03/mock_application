@@ -2,7 +2,7 @@ const pool = require('../config/db')
 
 async function readDB(){
     const result = await pool.query("select * from availability limit 1")
-    return result.rows
+    return result.rows[0]
 }
 
 async function readDB1(){
